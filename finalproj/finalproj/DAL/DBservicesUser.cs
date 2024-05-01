@@ -170,6 +170,7 @@ public class DBservicesUser
                     {
                         User user = new User
                         {
+                            Id = dataReader.GetInt32(0), // Get the Id from the first column
                             Username = dataReader["Username"].ToString(),
                             FirstName = dataReader["FirstName"].ToString(),
                             LastName = dataReader["LastName"].ToString(),
@@ -225,6 +226,7 @@ public class DBservicesUser
             {
                 User loggedInUser = new User
                 {
+                    Id = dataReader.GetInt32(0),
                     Username = dataReader["Username"].ToString(),
                     FirstName = dataReader["FirstName"].ToString(),
                     LastName = dataReader["LastName"].ToString(),
@@ -307,75 +309,81 @@ public class DBservicesUser
     }
 
 
-    //public User ReadOne(string email)
-    //{
+    public User ReadOne(string email)
+    {
+        SqlConnection con;
+        SqlCommand cmd;
 
-    //    SqlConnection con;
-    //    SqlCommand cmd;
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
 
-    //    try
-    //    {
-    //        con = connect("myProjDB"); // create the connection
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // write to log
-    //        throw (ex);
-    //    }
+        cmd = CreateReadOneCommandWithStoredProcedureWithoutParameters("spReadOneUser", con, email);
 
-    //    cmd = CreateReadOneCommandWithStoredProcedureWithoutParameters("spReadOneUser", con, email);
-    //    try
-    //    {
-    //        con.Open();
-    //        using (SqlDataReader dataReader = cmd.ExecuteReader())
-    //        {
-    //            if (dataReader.Read())
-    //            {
-    //                User user = new User
-    //                {
-    //                    Id = Convert.ToInt16(dataReader["Id"]),
-    //                    Username = dataReader["Username"].ToString(),
-    //                    FirstName = dataReader["FirstName"].ToString(),
-    //                    LastName = dataReader["LastName"].ToString(),
-    //                    Email = dataReader["Email"].ToString(),
-    //                    Password = dataReader["Password"].ToString(),
-    //                    DateOfBirth = Convert.ToDateTime(dataReader["DateOfBirth"]),
-    //                    Gender = dataReader["Gender"].ToString(),
-    //                    TypeOfIBD = dataReader["TypeOfIBD"].ToString(),
-    //                    ProfilePicture = dataReader["ProfilePicture"] != DBNull.Value ? dataReader["ProfilePicture"].ToString() : null
-    //                };
-    //                con.Close();
-    //                return user;
-    //            }
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        throw new ApplicationException($"Error in Read: {ex.Message}", ex);
-    //    }
-    //    return null;
-    //}
+        try
+        {
+            using (SqlDataReader dataReader = cmd.ExecuteReader())
+            {
+                if (dataReader.Read())
+                {
+                    User user = new User
+                    {
+                        Id = dataReader.GetInt32(0),
+                        FirstName = dataReader["FirstName"].ToString(),
+                        LastName = dataReader["LastName"].ToString(),
+                        Email = dataReader["Email"].ToString(),
+                        Password = dataReader["Password"].ToString(),
+                        DateOfBirth = Convert.ToDateTime(dataReader["DateOfBirth"]),
+                        Gender = dataReader["Gender"].ToString(),
+                        TypeOfIBD = dataReader["TypeOfIBD"].ToString(),
+                        ProfilePicture = dataReader["ProfilePicture"] != DBNull.Value ? dataReader["ProfilePicture"].ToString() : null
+                    };
+                    return user;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new ApplicationException($"Error in Read: {ex.Message}", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
 
-
-
-    //private SqlCommand CreateReadOneCommandWithStoredProcedureWithoutParameters(String spName, SqlConnection con, string email)
-    //{
-
-    //    SqlCommand cmd = new SqlCommand();
-
-    //    cmd.Connection = con;
-
-    //    cmd.CommandText = spName;
-
-    //    cmd.CommandTimeout = 10;
-
-    //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-    //    cmd.Parameters.AddWithValue("@email", email);
+        return null;
+    }
 
 
-    //    return cmd;
-    //}
+
+    private SqlCommand CreateReadOneCommandWithStoredProcedureWithoutParameters(String spName, SqlConnection con, string email)
+    {
+
+        SqlCommand cmd = new SqlCommand();
+
+        cmd.Connection = con;
+
+        cmd.CommandText = spName;
+
+        cmd.CommandTimeout = 10;
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+        cmd.Parameters.AddWithValue("@email", email);
+
+
+        return cmd;
+    }
 
 
 }

@@ -17,19 +17,10 @@ namespace finalproj.Controllers
         }
 
         //GET api/<UsersController>/5
-        [HttpGet("{email}")]
-        //public IActionResult Get(string email)
+        //[HttpGet("{}")]
+        //public IActionResult Get()
         //{
-        //    User user = new User();
-        //    var foundUser = user.ReadOne(email); // Pass the email parameter to ReadOne()
-        //    if (foundUser != null)
-        //    {
-        //        return Ok(foundUser);
-        //    }
-        //    else
-        //    {
-        //        return NotFound("User not found");
-        //    }
+        //    
         //}
 
         // POST api/<UsersController>
@@ -39,9 +30,9 @@ namespace finalproj.Controllers
 
             if (user.Insert()) // Assuming Insert() returns true if the user is successfully inserted
             {
-                //User FullUser = new User();
-                //FullUser = user.Get(user.email);
-                return Ok(user);
+                User FullUser = new User();
+                FullUser = user.ReadOne(user.Email);
+                return Ok(FullUser);
             }
             else
             {
@@ -77,7 +68,9 @@ namespace finalproj.Controllers
             //user.Email = email;
             if (user.Update() == 1) // Assuming Update() updates a user and returns the number of affected rows
             {
-                return Ok(user);
+                User FullUser = new User();
+                FullUser = user.ReadOne(user.Email);
+                return Ok(FullUser);
             }
             else
             {

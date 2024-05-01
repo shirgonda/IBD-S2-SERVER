@@ -72,11 +72,11 @@ namespace finalproj.BL
             return dbs.Read();
         }
 
-        //      public User ReadOne(string email)
-        //{
-        //    DBservicesUser dbs = new DBservicesUser();
-        //    return dbs.ReadOne(email);
-        //}
+        public User ReadOne(string email)
+        {
+            DBservicesUser dbs = new DBservicesUser();
+            return dbs.ReadOne(email);
+        }
 
         public int Update()
         {

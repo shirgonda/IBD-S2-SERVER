@@ -1,9 +1,8 @@
-﻿ALTER PROCEDURE spReadOneUser
-    @Email NVARCHAR(255)
+﻿ALTER PROCEDURE spReadUser
 AS
 BEGIN
     SELECT 
-        [UserID],
+		[UserID],
         [Username],
         [FirstName],
         [LastName],
@@ -13,6 +12,5 @@ BEGIN
         [Gender],
         [TypeOfIBD],
         [ProfilePicture]
-    FROM Users
-    WHERE Email = @Email
+    FROM Users;
 END;

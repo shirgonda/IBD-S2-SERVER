@@ -45,5 +45,40 @@ namespace finalproj.BL
         public int Month { get => month; set => month = value; }
         public int Year { get => year; set => year = value; }
 
+
+        public bool Insert()
+        {
+            DBservicesEvent dbs = new DBservicesEvent();
+            dbs.Insert(this);
+            return true;
+        }
+
+        // קריאת כל האירועים עבור משתמש מסוים
+        public List<CalendarEvent> Read(int userId)
+        {
+            DBservicesEvent dbs = new DBservicesEvent();
+            return dbs.Read(userId);
+        }
+
+        // קריאת אירוע לפי מזהה עבור משתמש מסוים
+        public CalendarEvent ReadOne(int eventId, int userId)
+        {
+            DBservicesEvent dbs = new DBservicesEvent();
+            return dbs.ReadOne(eventId, userId);
+        }
+
+        public int Update()
+        {
+            DBservicesEvent dbs = new DBservicesEvent();
+            return dbs.Update(this);
+        }
+
+        public bool Delete()
+        {
+            DBservicesEvent dbs = new DBservicesEvent();
+            return dbs.Delete(this);
+        }
     }
 }
+    
+

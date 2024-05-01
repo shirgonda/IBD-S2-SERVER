@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+VPGqU3L1+F32qagbEp2h5xJhA/1K+NvVLUveAxThpN5OceOIaoQCBXJRm3+bfGoK//MpEBMjUYsSZPqEGr1Mg==",
+  "dgSpecHash": "VCgs+YUQ3PO5HXqMgut9OcpccpLCClOZIVvmNI/h2uuh0ItX39SAHl/Uvxr8ByOJGHpNHeoZd1vdDEn+QblZhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\finalproj.csproj",
+  "projectFilePath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\finalproj.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shir\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Shir\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

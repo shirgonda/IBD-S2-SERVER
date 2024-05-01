@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\finalproj.csproj": {}
+    "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\finalproj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\finalproj.csproj": {
+    "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\finalproj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\finalproj.csproj",
+        "projectUniqueName": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\finalproj.csproj",
         "projectName": "finalproj",
-        "projectPath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\finalproj.csproj",
+        "projectPath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\finalproj.csproj",
         "packagesPath": "C:\\Users\\Shir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBDS-2\\finalproj\\finalproj\\obj\\",
+        "outputPath": "C:\\Users\\Shir\\Desktop\\IBD'S\\IBD-S2-SERVER\\finalproj\\finalproj\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Shir\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -17,6 +17,7 @@ namespace finalproj.BL
         private string gender;
         private string typeOfIBD;
         private string profilePicture;
+        //hi
 
         public static List<User> Users = new List<User>();
 
